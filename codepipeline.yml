@@ -31,7 +31,6 @@ Resources:
         RoleArn: !GetAtt CodePipelineRole.Arn
         Name: !Sub '${AWS::StackName}-pipeline'
         Stages:
-  
           - Name: Source
             Actions:
               - Name: Source
@@ -43,12 +42,11 @@ Resources:
                 Configuration:
                   Repo: !Ref GitHubRepo
                   Owner: !Ref GitHubRepoOwner
-                  Branch: master
+                  Branch: main
                   OAuthToken: !Ref GitHubToken
                 OutputArtifacts:
                   - Name: Source
                 RunOrder: 1
-  
           - Name: Build
             Actions:
               - Name: Build
@@ -126,6 +124,7 @@ Resources:
       Name: !Ref AWS::StackName
       ServiceRole: !Ref CodeBuildServiceRole
   CloudFormationTrustRole:
+    Type: AWS::IAM::Role
     DependsOn:
     - ArtifactStoreBucket
     Description: Creating service role in IAM for AWS CloudFormation
@@ -232,7 +231,6 @@ Resources:
         - - serverless
           - Ref: AWS::StackName
           - CloudFormation
-    Type: AWS::IAM::Role
   CodePipelineRole:
     Type: AWS::IAM::Role
     Properties:
