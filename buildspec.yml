@@ -6,7 +6,7 @@ phases:
       java: openjdk8
   pre_build:
     commands:
-      - echo Nothing to do in prebuild
+      - echo Nothing to do in prebuild end
   build:
     commands:
       - echo Build started on 'date'
