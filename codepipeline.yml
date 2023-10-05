@@ -98,7 +98,7 @@ Resources:
   ArtifactStoreBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub 'td10052023-${AWS::StackName}-artifacts'
+      BucketName: !Sub '${AWS::StackName}-artifacts'
     DeletionPolicy: Delete
   CodeBuildProject:
     Type: AWS::CodeBuild::Project
