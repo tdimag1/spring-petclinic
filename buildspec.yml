@@ -10,8 +10,6 @@ phases:
     commands:
       - AWS_ACC=$(echo $CODEBUILD_BUILD_ARN | cut -d':' -f5)
       - REPOSITORY_URI=$AWS_ACC.dkr.ecr.$AWS_REGION.amazonaws.com
-      - docker push $REPOSITORY_URI/${REPO}:latest
-      - echo {\"repo\":\"${REPO}\"} > repo.json
   build:
     commands:
       - echo Build started on `date`
