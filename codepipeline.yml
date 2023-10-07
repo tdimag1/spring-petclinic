@@ -158,6 +158,7 @@ Resources:
             - iam:DeleteInstanceProfile
             - iam:CreateInstanceProfile
             - iam:PassRole
+            - iam:CreateServiceLinkedRole
             Effect: Allow
             Resource: "*"
           - Action:
